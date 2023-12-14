@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --space-0: 0;
   --space-1: 4px;
@@ -41,11 +45,10 @@
   --line-height-12: 128px;
 
   --white: #fff;
-  --black: #101112;
-  --gray-200: #ced2d9;
-  --gray-600: #6e7683;
-  --blue-600: #1e61cd;
-  --magenta-100: #f9d7eb;
+  --black: #212121;
+  --purple: #c200d2;
+  --red: #8f040b;
+  --green: #43d200;
 
   --max-width-0: 320px;
   --max-width-1: 768px;
@@ -103,7 +106,7 @@ body {
 }
 
 .post .post__content a {
-  color: var(--blue-600);
+  color: var(--red);
   text-decoration: none;
 }
 
@@ -281,7 +284,7 @@ main {
 }
 
 .steps .steps__text a {
-  color: var(--blue-600);
+  color: var(--red);
   text-decoration: none;
 }
 
@@ -301,7 +304,7 @@ main {
     position: absolute;
     width: 375px;
     height: 115px;
-    background: var(--magenta-100);
+    background: var(--green);
     filter: blur(82px);
     transform: rotate(-19deg);
     z-index: -1;
