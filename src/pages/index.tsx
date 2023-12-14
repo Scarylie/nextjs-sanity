@@ -6,22 +6,29 @@ import Container from '~/components/Container'
 import Welcome from '~/components/Welcome'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
+import {
+  getPosts,
+  getProducts,
+  type Post,
+  postsQuery,
+  type Product,
+  productsQuery,
+} from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
-    posts: Post[]
+    products: Product[]
   }
 > = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const posts = await getPosts(client)
+  const products = await getProducts(client)
 
   return {
     props: {
       draftMode,
       token: draftMode ? readToken : '',
-      posts,
+      products,
     },
   }
 }
@@ -29,12 +36,15 @@ export const getStaticProps: GetStaticProps<
 export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const [products] = useLiveQuery<Product[]>(props.products, postsQuery)
+  console.log('Products: ', products)
   return (
     <Container>
-      <section>
-        {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
+      <section className="p-24">
+        {products.length ? (
+          products.map((product) => (
+            <Card key={product._id} product={product} />
+          ))
         ) : (
           <Welcome />
         )}
