@@ -7,9 +7,7 @@ import Welcome from '~/components/Welcome'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import {
-  getPosts,
   getProducts,
-  type Post,
   postsQuery,
   type Product,
   productsQuery,
