@@ -3,18 +3,12 @@ import { useLiveQuery } from 'next-sanity/preview'
 
 import Card from '~/components/Card'
 import Container from '~/components/Container'
+import Heading from '~/components/Heading'
 import Hero from '~/components/Hero'
 import Welcome from '~/components/Welcome'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import {
-  getPosts,
-  getProducts,
-  type Post,
-  postsQuery,
-  type Product,
-  productsQuery,
-} from '~/lib/sanity.queries'
+import { getProducts, postsQuery, type Product } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps: GetStaticProps<
@@ -38,15 +32,19 @@ export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const [products] = useLiveQuery<Product[]>(props.products, postsQuery)
-  console.log('Products: ', products)
+
   return (
     <Container>
       <Hero />
-      <section className="p-24">
+      <Heading />
+      <section className="px-4 lg:px-0">
+        <h2 className="mb-4 uppercase">Featured products</h2>
         {products.length ? (
-          products.map((product) => (
-            <Card key={product._id} product={product} />
-          ))
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase">
+            {products.map((product) => (
+              <Card key={product._id} product={product} />
+            ))}
+          </div>
         ) : (
           <Welcome />
         )}
