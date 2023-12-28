@@ -35,6 +35,11 @@ export default function IndexPage(
 ) {
   const [products] = useLiveQuery<Product[]>(props.products, postsQuery)
 
+  const tagList = products.map((tag) => {
+    return tag.tag
+  })
+  const uniqueTags = [...new Set(tagList)]
+
   return (
     <Container>
       <Header />
@@ -42,7 +47,20 @@ export default function IndexPage(
       <div className="sm:mx-8 mb-20">
         <Heading />
         <section className="px-4 lg:px-0">
-          <h2 className="mb-4 uppercase">Featured products</h2>
+          <div className="flex justify-between mx-5">
+            <h2 className="mb-4 uppercase ">Featured products</h2>
+            <div className="flex flex-row gap-2 invisible md:visible mb-5">
+              <p className="">Sort:</p>
+              {uniqueTags.map((tag) => (
+                <button
+                  key={tag}
+                  className="border-solid border border-black-100 px-2 text-sm"
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
           {products.length ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase">
               {products.map((product) => (
