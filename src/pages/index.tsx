@@ -44,7 +44,7 @@ export default function IndexPage(
     <Container>
       <Header />
       <Hero />
-      <div className="sm:mx-8 mb-20">
+      <div className="sm:mx-8 mb-20 lg:mx-40">
         <Heading />
         <section className="px-4 lg:px-0">
           <div className="flex justify-between mx-5">
