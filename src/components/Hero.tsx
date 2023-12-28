@@ -16,7 +16,7 @@ export default function Hero() {
           zIndex: -1,
         }}
       />
-      <div className="absolute inset-0 px-4 lg:px-0">
+      <div className="absolute inset-20 px-4 lg:px-0">
         <div className="flex flex-col">
           <p className="text-2xl">OVERLINE</p>
           <h1 className="text-6xl">WELCOME TO MAYA</h1>

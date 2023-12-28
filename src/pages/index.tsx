@@ -3,6 +3,8 @@ import { useLiveQuery } from 'next-sanity/preview'
 
 import Card from '~/components/Card'
 import Container from '~/components/Container'
+import Footer from '~/components/Footer'
+import Header from '~/components/Header'
 import Heading from '~/components/Heading'
 import Hero from '~/components/Hero'
 import Welcome from '~/components/Welcome'
@@ -35,20 +37,24 @@ export default function IndexPage(
 
   return (
     <Container>
+      <Header />
       <Hero />
-      <Heading />
-      <section className="px-4 lg:px-0">
-        <h2 className="mb-4 uppercase">Featured products</h2>
-        {products.length ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase">
-            {products.map((product) => (
-              <Card key={product._id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <Welcome />
-        )}
-      </section>
+      <div className="sm:mx-8 mb-20">
+        <Heading />
+        <section className="px-4 lg:px-0">
+          <h2 className="mb-4 uppercase">Featured products</h2>
+          {products.length ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 uppercase">
+              {products.map((product) => (
+                <Card key={product._id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <Welcome />
+          )}
+        </section>
+      </div>
+      <Footer />
     </Container>
   )
 }

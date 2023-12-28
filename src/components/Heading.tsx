@@ -1,9 +1,8 @@
 export default function Heading() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 py-12 px-4 lg:px-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-12 px-4 lg:px-0">
       <div className="flex flex-col justify-between">
         <h1 className="text-6xl">FULED TO IMPACT</h1>
-        <div className="w-full h-2 bg-black"></div>
       </div>
       <div>
         <p className="text-red mb-4">
@@ -16,6 +15,7 @@ export default function Heading() {
           fueled our design ethos, and championed our athlete community.
         </p>
       </div>
+      <div className="w-5/6 h-2 bg-black"></div>
     </div>
   )
 }
