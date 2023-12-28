@@ -168,10 +168,6 @@ body {
 }
 
 /* Layout */
-.container {
-  margin: 0 auto;
-}
-
 .header {
   display: flex;
   padding: 0 var(--space-1);
