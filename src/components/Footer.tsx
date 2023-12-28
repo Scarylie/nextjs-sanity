@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="">
           <p className="text-2xl">MAYA</p>
         </div>
-        {/* grid grid-cols-2 sm:grid-cols-1 */}
+
         <div className="grid grid-cols-2 sm:flex sm:flex-row sm:gap-5">
           <p>Man</p>
           <p>Woman</p>
